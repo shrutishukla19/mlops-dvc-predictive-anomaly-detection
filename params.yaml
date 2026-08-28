@@ -1,0 +1,33 @@
+data_ingestion:
+  test_size: 0.2
+
+data_preprocessing:
+  input_dir: data/raw
+  output_dir: data/interim
+  columns_to_drop: ["UDI",
+    "Product ID",
+    "TWF",
+    "HDF",
+    "PWF",
+    "OSF",
+    "RNF"]
+
+feature_engineering:
+  input_dir: data/interim
+  output_dir: data/processed
+  train_filename: train_processed.csv
+  test_filename: test_processed.csv
+
+model_building:
+  input_dir: data/processed
+  output_dir: models
+  train_filename: train_featured.csv
+  model_output_path: models/model.pkl
+  n_estimators: 100
+  class_weight: balanced
+
+model_evaluation:
+  model_path: models/model.pkl
+  test_data_path: data/processed/test_featured.csv
+  metrics_output_path: reports/metrics.json
+
