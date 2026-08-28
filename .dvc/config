@@ -1,4 +1,4 @@
 [core]
-    remote = local
-['remote "local"']
-    url = C:\Users\Utkar\OneDrive\Desktop\local
+    remote = s3-store
+['remote "s3-store"']
+    url = s3://mlops-dvc-predictive-anomaly-detection
